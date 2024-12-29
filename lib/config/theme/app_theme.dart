@@ -19,6 +19,9 @@ class AppTheme {
     colorScheme: ColorScheme.fromSwatch(
       primarySwatch: colorList[selectedColor], //Seleccion del color mediante selectedColor
     ),
+    appBarTheme: const AppBarTheme(
+        centerTitle: false
+    ),
     useMaterial3: true,
   );
 }
