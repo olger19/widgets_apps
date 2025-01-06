@@ -6,7 +6,7 @@ void main() {
   runApp(const MyApp());
 }
 
-// git checkout -- . (Recuperar mi proyecto del commit anterior)
+// git checkout -- . //(Recuperar mi proyecto del commit anterior)
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
