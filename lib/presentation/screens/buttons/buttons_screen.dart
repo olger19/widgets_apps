@@ -72,7 +72,7 @@ class _ButtonsView extends StatelessWidget {
                 icon: const Icon(Icons.account_box_outlined),
                 label: const Text('Text Icon')),
 
-            //TODO: CUSTOM BUTTON
+            const CustomButton(),
 
             IconButton(
                 onPressed: () {},
@@ -88,6 +88,29 @@ class _ButtonsView extends StatelessWidget {
                 ),
                 icon: const Icon(Icons.app_registration_rounded)),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  const CustomButton({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: Material(
+        color: colors.primary,
+        // InkWell es parecido a GestureDetector pero con efectos de material
+        child: InkWell(
+          onTap: () {},
+          child: const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Text('Hola Mundo'),
+          ),
         ),
       ),
     );
