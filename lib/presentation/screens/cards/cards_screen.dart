@@ -50,6 +50,10 @@ class _CardsView extends StatelessWidget {
             (card) => _CardType3 (elevation: card['elevation'], label: card['label']),
           ),
 
+          ...cards.map(
+            (card) => _CardType4 (elevation: card['elevation'], label: card['label']),
+          ),
+
           //Subir un poco mas y ver un espacio max:100
           const SizedBox(height: 100),
         ],
