@@ -14,12 +14,14 @@ class MenuItems {
   });
 
   static const appMenuItems = <MenuItems>[
+
     MenuItems(
       title: 'Botones',
       subTitle: 'Varios botones en Flutter',
       link: '/buttons',
       icon: Icons.smart_button_outlined
     ),
+    
     MenuItems(
       title: 'Tarjetas',
       subTitle: 'Un contenedor estilizado',
@@ -32,6 +34,13 @@ class MenuItems {
       subTitle: 'Generales y controladores',
       link: '/progress',
       icon: Icons.refresh_rounded
+    ),
+
+    MenuItems(
+      title: 'Snackbar y dialogos',
+      subTitle: 'Indicadores en pantalla',
+      link: '/snackbars',
+      icon: Icons.info_outline
     )
   ];
 
