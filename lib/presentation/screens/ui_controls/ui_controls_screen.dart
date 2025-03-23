@@ -1,14 +1,94 @@
 import 'package:flutter/material.dart';
 
 class UiControlsScreen extends StatelessWidget {
-
   static const name = 'ui_controls_screen';
 
   const UiControlsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('UI Controls'),
+      ),
+      body: const _UiControlsView(),
+    );
   }
-  
+}
+
+class _UiControlsView extends StatefulWidget {
+  const _UiControlsView();
+
+  @override
+  State<_UiControlsView> createState() => _UiControlsViewState();
+}
+
+enum Trasnportation { car, bike, boat, plane }
+
+class _UiControlsViewState extends State<_UiControlsView> {
+  bool isDeveloper = true;
+  Trasnportation groupValue = Trasnportation.car;
+  bool wantsBreafast = false;
+  bool wantsLunch = false;
+  bool wantsDinner = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      physics: const ClampingScrollPhysics(),
+      children: [
+        SwitchListTile(
+            title: const Text('Developer Mode'),
+            subtitle: const Text('Controles adicionales'),
+            value: true,
+            onChanged: (value) => setState(() => isDeveloper = !isDeveloper)),
+        ExpansionTile(
+          title: const Text('Vehiculo de transporte'),
+          subtitle: Text('$groupValue'),
+          children: [
+            RadioListTile(
+                value: Trasnportation.car,
+                groupValue: groupValue,
+                onChanged: (value) => setState(
+                      () {
+                        groupValue = Trasnportation.car;
+                      },
+                    )),
+            RadioListTile(
+                title: const Text('By Boat'),
+                subtitle: const Text('Viajar por Bote '),
+                value: Trasnportation.boat,
+                groupValue: groupValue,
+                onChanged: (value) => setState(
+                      () {
+                        groupValue = Trasnportation.boat;
+                      },
+                    )),
+            RadioListTile(
+                title: const Text('By Bike'),
+                subtitle: const Text('Viajar por bicicleta'),
+                value: Trasnportation.bike,
+                groupValue: groupValue,
+                onChanged: (value) => setState(
+                      () {
+                        groupValue = Trasnportation.bike;
+                      },
+                    )),
+            RadioListTile(
+                title: const Text('By Plane'),
+                subtitle: const Text('Viajar por Avion'),
+                value: Trasnportation.plane,
+                groupValue: groupValue,
+                onChanged: (value) => setState(
+                      () {
+                        groupValue = Trasnportation.plane;
+                      },
+                    )),
+          ],
+        ),
+        CheckboxListTile(
+          value: , onChanged: onChanged)
+      ],
+    );
+  }
 }
