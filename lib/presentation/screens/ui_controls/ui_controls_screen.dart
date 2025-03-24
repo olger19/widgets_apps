@@ -28,9 +28,10 @@ enum Trasnportation { car, bike, boat, plane }
 class _UiControlsViewState extends State<_UiControlsView> {
   bool isDeveloper = true;
   Trasnportation groupValue = Trasnportation.car;
-  bool wantsBreafast = false;
-  bool wantsLunch = false;
-  bool wantsDinner = false;
+
+  bool wantsBreakfast = false; // Variable para checkbox
+  bool wantsLunch = false; // Variable para checkbox
+  bool wantsDinner = false; // Variable para checkbox
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +42,9 @@ class _UiControlsViewState extends State<_UiControlsView> {
             title: const Text('Developer Mode'),
             subtitle: const Text('Controles adicionales'),
             value: true,
-            onChanged: (value) => setState(() => isDeveloper = !isDeveloper)),
+            onChanged: (value) => setState(() => isDeveloper = !isDeveloper)
+            ),
+        // Expansion de los Tiles creados
         ExpansionTile(
           title: const Text('Vehiculo de transporte'),
           subtitle: Text('$groupValue'),
@@ -86,8 +89,28 @@ class _UiControlsViewState extends State<_UiControlsView> {
                     )),
           ],
         ),
+        // Checkbox basado en dos booleanos obligatorios
         CheckboxListTile(
-          value: , onChanged: onChanged)
+          title: const Text('Desayuno?'),
+          value: wantsBreakfast, 
+          onChanged: (value) => setState(() {
+            wantsBreakfast = !wantsBreakfast;
+          }),
+        ),
+        CheckboxListTile(
+          title: const Text('Almuerzo?'),
+          value: wantsLunch, 
+          onChanged: (value) => setState(() {
+            wantsLunch = !wantsLunch;
+          }),
+        ),
+        CheckboxListTile(
+          title: const Text('Cena?'),
+          value: wantsDinner, 
+          onChanged: (value) => setState(() {
+            wantsDinner = !wantsDinner;
+          }),
+        ),
       ],
     );
   }
